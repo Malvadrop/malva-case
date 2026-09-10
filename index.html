@@ -3795,63 +3795,260 @@
       radial-gradient(circle at 14px 14px, #777 2.5px, transparent 3px),
       radial-gradient(circle at calc(100% - 14px) 14px, #777 2.5px, transparent 3px),
       radial-gradient(circle at 14px calc(100% - 14px), #777 2.5px, transparent 3px),
-      radial-gradient(circle at calc(100% - 14px) calc(100% - 14px), #777 2.5px, transparent 3px),
-      linear-gradient(180deg, #6a6a6a, #2a2a2a 40%, #0e0e0e) !important;
-  }
-  .cv-rifle .scope {
-    box-shadow: 0 0 0 5px #111, 0 0 24px rgba(225,6,0,0.35), inset 0 0 24px rgba(225,6,0,0.2) !important;
-  }
-  .cv-chroma .chrome {
-    box-shadow: 0 0 32px rgba(225,6,0,0.35), 0 14px 28px rgba(0,0,0,0.5) !important;
-  }
-  .cv-fracture .rock {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.55), inset 0 0 30px rgba(0,0,0,0.4) !important;
-  }
-  .cv-premium .crate3d {
-    box-shadow: 0 14px 30px rgba(0,0,0,0.6), inset 0 0 40px rgba(225,6,0,0.12) !important;
-  }
-  .cv-premium .seal {
-    box-shadow: 0 0 20px rgba(225,6,0,0.7) !important;
-  }
-  .cv-elite .diamond {
-    box-shadow: 0 0 40px rgba(225,6,0,0.65), inset 0 0 16px rgba(255,255,255,0.35) !important;
-  }
-  .cv-omega .orb {
-    box-shadow: 0 0 40px rgba(225,6,0,0.7), inset 0 0 28px rgba(225,6,0,0.35) !important;
-  }
-  .cv-allin .chip {
-    box-shadow: 0 0 36px rgba(225,6,0,0.55), 0 14px 28px rgba(0,0,0,0.55) !important;
-  }
-  .cv-legend .crown {
-    filter: drop-shadow(0 0 12px rgba(225,6,0,0.55)) drop-shadow(0 10px 16px rgba(0,0,0,0.5)) !important;
-  }
-  .cv-knife .blade {
-    filter: drop-shadow(0 0 8px rgba(200,200,220,0.35)) drop-shadow(0 10px 14px rgba(0,0,0,0.55)) !important;
-  }
-  .cv-gloves .glove {
-    box-shadow: 0 12px 26px rgba(0,0,0,0.55), inset 0 0 20px rgba(225,6,0,0.18) !important;
-  }
-  .cv-gallery .frame {
-    box-shadow: 0 0 0 1px #1a0505, 0 14px 28px rgba(0,0,0,0.55), inset 0 0 30px rgba(225,6,0,0.25) !important;
-  }
-  .cv-brokenfang .fang {
-    filter: drop-shadow(0 12px 14px rgba(0,0,0,0.55)) !important;
-  }
-  .cv-recoil .flash {
-    filter: blur(0.5px);
-  }
+:root {
+  --bg: #0b0614;
+  --card: #140c22;
+  --card2: #1c1230;
+  --accent: #a855f7;
+  --accent2: #ec4899;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f43f5e;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border: #2e1b4d;
+  --glow: rgba(168, 85, 247, 0.5);
+}
 
-  .crate {
-    display: flex;
-    flex-direction: column;
-  }
-  .crate-name {
-    min-height: 1.4em;
-  }
-  .crate-desc {
-    min-height: 2.4em;
-    flex-grow: 1;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  background: 
+    radial-gradient(ellipse 80% 50% at 15% -5%, rgba(168, 85, 247, 0.28), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 5%, rgba(236, 72, 153, 0.18), transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(168, 85, 247, 0.12), transparent 50%),
+    linear-gradient(180deg, #0b0614 0%, #11081f 50%, #0b0614 100%);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(180deg, rgba(20, 12, 34, 0.95), rgba(11, 6, 20, 0.92));
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+}
+
+.logo span {
+  background: linear-gradient(135deg, #fff 10%, #a855f7 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.balance-box {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(0, 0, 0, 0.5));
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+/* ===== TABS ===== */
+.tab-btn {
+  background: rgba(28, 18, 48, 0.8);
+  color: var(--muted);
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+  background: var(--card2);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+  box-shadow: 0 4px 22px rgba(168, 85, 247, 0.5);
+}
+
+/* ===== CRATE CARDS ===== */
+.crate {
+  background: linear-gradient(160deg, #1a0f2e 0%, #120a22 60%, #1a0f2e 100%);
+  border: 1px solid #3b1f6b;
+  border-radius: 18px;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.crate:hover {
+  border-color: #a855f7;
+  box-shadow: 
+    0 0 0 1px rgba(168, 85, 247, 0.5),
+    0 20px 45px rgba(168, 85, 247, 0.25);
+  transform: translateY(-8px) scale(1.025);
+}
+
+.crate::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(168, 85, 247, 0.08), transparent 40%);
+  animation: crateSpin 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes crateSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== BUTTONS ===== */
+.btn-open {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: white;
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.4);
+  transition: all 0.25s ease;
+}
+
+.btn-open:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 6px 28px rgba(168, 85, 247, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-fast {
+  background: linear-gradient(135deg, #f59e0b, #ec4899);
+  color: white;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
+}
+
+.btn-fast:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-sell {
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: #052e16;
+}
+
+/* ===== ITEM CARDS ===== */
+.item-card {
+  background: linear-gradient(180deg, rgba(28, 18, 48, 0.95), rgba(20, 12, 34, 0.98));
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.item-card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.4);
+}
+
+/* ===== RARITY COLORS ===== */
+.rarity-common { background: #3a3a48; color: #b0b0c0; }
+.rarity-uncommon { background: #064e3b; color: #34d399; }
+.rarity-rare { background: #1e3a5f; color: #60a5fa; }
+.rarity-epic { background: #3b0764; color: #c084fc; }
+.rarity-legendary { background: #713f12; color: #fbbf24; }
+
+/* ===== REEL & OVERLAY ===== */
+.reel-window {
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.25), 0 0 50px rgba(168, 85, 247, 0.35);
+}
+
+.reel-pointer {
+  background: linear-gradient(180deg, #fff, var(--accent), #fff);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+/* ===== UPGRADE & CONTRACT ===== */
+.contract-slot.filled,
+.loc-slot.filled,
+.spec-slot.filled {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.btn-upgrade {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  box-shadow: 0 6px 25px rgba(168, 85, 247, 0.4);
+}
+
+.btn-upgrade:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(168, 85, 247, 0.55);
+}
+
+/* ===== MINI-GAMES ===== */
+.btn-crash.start,
+.btn-mines.start {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+}
+
+.btn-crash.cashout,
+.btn-mines.cashout {
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: #052e16;
+}
+
+/* ===== CLICKER ===== */
+.clicker-btn {
+  border: 4px solid var(--accent);
+  background: linear-gradient(145deg, #2a1a45, #1a0f2e);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.clicker-btn:active,
+.clicker-btn.pressed {
+  transform: scale(0.92);
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3), inset 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== TOAST ===== */
+.toast {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== DROP FEED ===== */
+.drop-feed {
+  background: linear-gradient(180deg, rgba(11, 6, 20, 0.98), rgba(20, 12, 34, 0.95));
+  border-bottom: 1px solid var(--border);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0614;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b1f6b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
 
 </style>
   <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
